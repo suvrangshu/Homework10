@@ -98,10 +98,15 @@ def tobs():
     tmp_date = session.query(Measurement.date,Measurement.tobs).filter(Measurement.date >= year_ago).\
                  order_by(Measurement.date).all()
     
-    tobs = {i[0]:i[1] for i in tmp_date}
+    
+    #tobs = {i[0]:i[1] for i in tmp_date}
+    
+    tobs1 = pd.DataFrame(tmp_date, columns=['temperature', 'date'])
+    tobs1.set_index('date', inplace=True)
+    out_tobs = tobs1.to_dict()
     
     session.close()
-    return jsonify(tobs)
+    return jsonify(out_tobs)
     #return "Temperature Observed from last_date,year_ago,tobs
 
 #When given the start only, calculate TMIN, TAVG, and TMAX for all dates greater than and equal to the start date.
