@@ -16,4 +16,4 @@ Tedious way:
 You can execute the suv.py as -  python suv.py and then test the selections:
 
 
-Details with screen cature in the word document
+Details with screen cature in the pdf document
