@@ -17,7 +17,10 @@ I have created the second part of the flask in two ways: Easy Way, Tedious Way.
 Easy Way:
 
 I created a html file called ClimateApp.html. The ClimateApp.html displays all the hyperlinks to the flask and calls the app.py.
-From the folder, please right click on ClimateApp.html and select open with Chrome
+
+execute code app.py at command line - python app.py
+
+From the folder where the code is residing, select ClimateApp.html, please right click on ClimateApp.html and select open with Chrome.
 
 
 
