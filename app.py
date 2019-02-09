@@ -144,6 +144,11 @@ def start_end(start,end):
     trip_start_date = dt.datetime.strptime(start, "%Y-%m-%d")
     trip_end_date = dt.datetime.strptime(end, "%Y-%m-%d")
     
+    if trip_start_date > trip_end_date:
+        
+        session.close()
+        return jsonify({"error": f"Start date is > than End date.Valid range is {first_date}- {last_date}"})
+                
     
     pd_values = session.query(func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)).\
                 filter(Measurement.date >= trip_start_date).filter(Measurement.date <= trip_end_date).all()
